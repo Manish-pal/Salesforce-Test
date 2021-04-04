@@ -1,9 +1,4 @@
-<aura:component implements="force:appHostable,
-                            flexipage:availableForAllPageTypes,
-                            flexipage:availableForRecordHome,
-                            force:hasRecordId,
-                            forceCommunity:availableForAllPageTypes,
-                            force:lightningQuickAction" 
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
                 
                 access="global" >
 
@@ -11,13 +6,15 @@
     <aura:attribute name="NameOfStudent" type="String" default=""/>
     <aura:attribute name="ParentsName" type="String" default=""/>
     <aura:attribute name="Class" type="String" default=""/>
-    <aura:attribute name="NoFHoursStudy" type="String[]" default="Less than 1 hour, In between 1 to 4 hrs, In between 4 to 8 hours, More than 8 hours"/>
+    <aura:attribute name="NoFHoursStudy" type="String[]" default="  ,Less than 1 hour, In between 1 to 4 hrs, In between 4 to 8 hours, More than 8 hours"/>
     
     <aura:attribute name="usersResponse1" type="String" default=""/>   <!-- for storing the selected value from picklist -->
    
     <aura:attribute name="MobileNumber" Type="Integer" default=""/>
     <aura:attribute name="HaveYouTakenCourseBefore" type="Boolean" default="false"/>
     <aura:attribute name="AreYouInterestedInOnlineCourse" type="Boolean"/>
+    
+    <aura:attribute name="CheckBoxValue" type="Boolean" default="false"></aura:attribute>
     <br/><br/>
     
     <div class="slds-m-top_x-large">
@@ -27,7 +24,7 @@
             <div class="slds-text-heading--large">
                 
                 	Registration Form for Student
-                Value stored in the Abc attribute is {!v.abc}
+               
                 </div>
             	
         	</div>
@@ -52,10 +49,14 @@
 
     </lightning:select><br/><br/>
     <lightning:input type="telephone" label="Enter Your Mobile Number" Name="mobileNumber"  value="{!v.MobileNumber}"/><br/>
-    <lightning:input type="checkbox" label="Are youavailable on weekends to attend these classes?" name="firstCheckbox"/><br/>
-    <aura:if isTrue="true">
-    	Hello! you have checked this box.
+    <lightning:input aura:id = "checkBox" type="checkbox" onchange="{!c.OnClickCheckBox}" label="Are you available on weekends to attend these classes?" name="firstCheckbox"/><br/>
+    
+        
+    <aura:if isTrue="{!v.CheckBoxValue}">
+        <br></br>
+    	<i> That's Great !! Happy Learning !! </i>.
+         <br></br>
     </aura:if><br/><br/>
-	<lightning:button label="Submit"></lightning:button><br/><br/>
+	<lightning:button label="Submit" onclick = "{!c.doSubmit}"></lightning:button><br/><br/>
    </div>
 </aura:component>
