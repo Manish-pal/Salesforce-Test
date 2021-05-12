@@ -18,6 +18,9 @@
     <aura:attribute name="MobileNumber" Type="Integer" default=""/>
     <aura:attribute name="HaveYouTakenCourseBefore" type="Boolean" default="false"/>
     <aura:attribute name="AreYouInterestedInOnlineCourse" type="Boolean"/>
+
+    <aura:attribute name="CheckBoxValue" type="Boolean" default="false"></aura:attribute>
+    <aura:attribute name="PageHeading" type="String" default="Registration Form for Student"></aura:attribute>
     <br/><br/>
     
     <div class="slds-m-top_x-large">
@@ -26,7 +29,7 @@
       
             <div class="slds-text-heading--large">
                 
-                	Registration Form for Student
+                	{!v.PageHeading}
                 Value stored in the Abc attribute is {!v.abc}
                 </div>
             	

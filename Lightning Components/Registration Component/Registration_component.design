@@ -1,0 +1,15 @@
+<design:component>
+
+	<!--- Adding the design attribute it's linked with attribute defined in the component resource 
+
+		Each Design attribute (D.A) is the property of the component
+	-->
+    
+    <design:attribute name="PageHeading" label="Page Heading" datasource = "Register for Girls, Register for Boys, Register for Kids" >
+        
+		<!--  description="Give your Page Heading Here"
+		datasource = "Register for Girls, Register for Boys, Register for Kids"
+		we can use the same component with different heads for the Form using this Design Attribute-->    
+    </design:attribute>
+	
+</design:component>
